@@ -68,4 +68,8 @@ public class WiseSayingService {
         return wiseSayingRepository.findById(id).author;
     }
 
+    public void buildService() {
+        wiseSayingRepository.build();
+    }
+
 }

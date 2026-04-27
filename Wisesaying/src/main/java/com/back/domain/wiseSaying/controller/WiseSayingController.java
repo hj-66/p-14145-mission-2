@@ -61,6 +61,11 @@ public class WiseSayingController {
         }
     }
 
+    public void buildWiseSaying() {
+        wiseSayingService.buildService();
+        System.out.println("data.json 파일의 내용이 갱신되었습니다.");
+    }
+
     private void pagePrint(int page, List<String> getWise) {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");

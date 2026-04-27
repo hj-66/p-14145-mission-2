@@ -15,6 +15,8 @@ public class SystemController {
     public void getCommand(String userCommand) {
         if (userCommand.contains("등록")) {
             wiseSayingController.createWiseSaying();
+        } else if (userCommand.contains("빌드")) {
+            wiseSayingController.buildWiseSaying();
         } else if (userCommand.contains("종료")) {
             System.out.println("프로그램을 종료합니다.");
         } else if (userCommand.contains("목록")) {
