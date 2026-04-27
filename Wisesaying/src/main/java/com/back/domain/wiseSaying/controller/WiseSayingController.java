@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
-    int wiseCount = 0;
     private final Scanner sc;
     WiseSayingService wiseSayingService = new WiseSayingService();
 
@@ -19,14 +18,12 @@ public class WiseSayingController {
         String content = sc.nextLine();
         System.out.print("작가 : ");
         String author = sc.nextLine();
-
-        wiseCount++;
-        wiseSayingService.createService(wiseCount, content, author);
-        System.out.println(wiseCount + "번 명언이 등록되었습니다.");
+        int id = wiseSayingService.createService(content, author);
+        System.out.println(id + "번 명언이 등록되었습니다.");
     }
 
     public void getWiseSaying(int page) {
-        List<String> getWise = wiseSayingService.getService(wiseCount);
+        List<String> getWise = wiseSayingService.getService();
 
         pagePrint(page, getWise);
     }
@@ -36,7 +33,7 @@ public class WiseSayingController {
         System.out.println("검색타입 : " + type);
         System.out.println("검색어 : " + search);
 
-        List<String> getWise = wiseSayingService.getSearchService(wiseCount, type, search);
+        List<String> getWise = wiseSayingService.getSearchService(type, search);
 
         pagePrint(page, getWise);
     }

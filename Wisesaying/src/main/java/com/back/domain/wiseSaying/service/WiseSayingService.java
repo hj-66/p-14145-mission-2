@@ -9,14 +9,14 @@ import java.util.List;
 public class WiseSayingService {
     WiseSayingRepository wiseSayingRepository = new WiseSayingRepository();
 
-    public void createService(int id, String content, String author) {
-        wiseSayingRepository.create(id, content, author);
+    public int createService(String content, String author) {
+        return wiseSayingRepository.create(content, author);
     }
 
-    public List<String> getService(int wiseCount) {
+    public List<String> getService() {
         List<String> getWise = new ArrayList<>();
 
-        for (int i = wiseCount; i >= 1; i--) {
+        for (int i = wiseSayingRepository.getCount(); i >= 1; i--) {
             WiseSaying w = wiseSayingRepository.findById(i);
             if (w == null) continue;
 
@@ -26,10 +26,10 @@ public class WiseSayingService {
         return getWise;
     }
 
-    public List<String> getSearchService(int wiseCount, String type, String search) {
+    public List<String> getSearchService(String type, String search) {
         List<String> getWise = new ArrayList<>();
 
-        for (int i = wiseCount; i >= 1; i--) {
+        for (int i = wiseSayingRepository.getCount(); i >= 1; i--) {
             WiseSaying w = wiseSayingRepository.findById(i);
             if (w == null) continue;
 
